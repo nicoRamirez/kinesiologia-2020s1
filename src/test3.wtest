@@ -1,0 +1,54 @@
+import aparatosYpacientes.*
+import rutina.*
+test "testX" {
+	
+	const nicolas =new PacienteResist(edad=40,nivelDolor=10,nivelForMusc=20,rutina=rutinaleo)
+	const magneto1 = new Magneto()
+	const bicicleta1 = new Bicicleta()
+	const miniTramp1 = new MiniTramp()
+	const rutinaleo = new Rutina(persona=nicolas)
+	rutinaleo.agregarRutina(magneto1)
+	rutinaleo.agregarRutina(bicicleta1)
+	rutinaleo.agregarRutina(miniTramp1)
+	
+	const victoria =new PacienteResist(edad=30,nivelDolor=10,nivelForMusc=40,rutina=rutinaleo2)
+	const magneto5 = new Magneto()
+	const bicicleta5 = new Bicicleta()
+	const miniTramp5 = new MiniTramp()
+	const rutinaleo2 = new Rutina(persona=victoria)
+	rutinaleo.agregarRutina(magneto5)
+	rutinaleo.agregarRutina(bicicleta5)
+	rutinaleo.agregarRutina(miniTramp5)
+	const julian =new PacienteCapric(edad=20,nivelDolor=54,nivelForMusc=50,rutina=rutinajulia)
+	const magneto2 = new Magneto(color=verde)
+	const bicicleta2 = new Bicicleta(color=rojo)
+	const bicicleta3 = new Bicicleta()
+	const rutinajulia = new Rutina(persona=julian)
+	rutinaleo.agregarRutina(magneto2)
+	rutinaleo.agregarRutina(bicicleta2)
+	rutinaleo.agregarRutina(bicicleta3)
+	const zoe =new RapidaRecuperacion(edad=50,nivelDolor=14,nivelForMusc=40,rutina=rutinaleo1)
+	const magneto4 = new Magneto(color=verde)
+	const bicicleta4 = new Bicicleta(color=rojo)
+	const miniTramp4 = new MiniTramp()
+	const rutinaleo1 = new Rutina(persona=zoe)
+	rutinaleo1.agregarRutina(magneto4)
+	rutinaleo1.agregarRutina(bicicleta4)
+	rutinaleo1.agregarRutina(miniTramp4)
+	
+	
+	nicolas.hacerRutina()
+	
+	assert.equals(1.8,nicolas.nivelDolor())
+	assert.equals(34,nicolas.nivelForMusc())
+	
+	assert.notThat(rutinaleo2.puedeHacerRutina())
+	
+	julian.hacerRutina()
+	
+	assert.equals(29.3,nicolas.nivelDolor())
+	assert.equals(62,nicolas.nivelForMusc())
+	
+	zoe.hacerRutina()
+	
+}

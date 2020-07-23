@@ -1,0 +1,29 @@
+import aparatosYpacientes.*
+test "test1" {
+	const leonardo1 = new Paciente(edad=40,nivelDolor=10,nivelForMusc=20)
+	const leonardo2 = new Paciente(edad=40,nivelDolor=10,nivelForMusc=20)
+	const leonardo3 = new Paciente(edad=40,nivelDolor=10,nivelForMusc=20)
+	const milena = new Paciente(edad=3,nivelDolor=30,nivelForMusc=50)
+	const magneto1 = new Magneto()
+	const bicicleta1 = new Bicicleta()
+	const miniTramp1 = new MiniTramp()
+	
+	Magneto1.disminuyeDolor(leonardo1)
+	
+	assert.equals(9,leonardo1.nivelDolor())
+	
+	bicicleta1.disminuyeDolor(leonardo2)
+	
+	assert.equals(6,leonardo2.nivelDolor())
+	assert.equals(23,leonardo2.nivelForMusc())
+	
+	MiniTramp1.disminuyeDolor(leonardo3)
+	
+	assert.equals(24,leonardo3.nivelForMusc())
+	
+	Magneto1.disminuyeDolor(milena)
+	MiniTramp1.disminuyeDolor(milena)
+	
+	assert.notThat(milena.puedeUsar(bicicleta1))
+	assert.equals(27,milena.nivelDolor())
+}

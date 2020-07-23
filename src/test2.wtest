@@ -1,0 +1,29 @@
+import aparatosYpacientes.*
+import rutina.*
+test "test2" {
+	const leonardo = new Paciente(edad=40,nivelDolor=10,nivelForMusc=20,rutina=rutinaleo)
+	const magneto1 = new Magneto()
+	const bicicleta1 = new Bicicleta()
+	const miniTramp1 = new MiniTramp()
+	const rutinaleo = new Rutina(persona=leonardo)
+	rutinaleo.agregarRutina(magneto1)
+	rutinaleo.agregarRutina(bicicleta1)
+	rutinaleo.agregarRutina(miniTramp1)
+	
+	assert.that(rutinaleo.puedeHacerRutina())
+	
+	leonardo.hacerRutina()
+	
+	assert.equals(1.8,leonardo.nivelDolor())
+	assert.equals(30,leonardo.nivelForMusc())
+	
+	const milena = new Paciente(edad=3,nivelDolor=30,nivelForMusc=50,rutina=rutinamile)
+	const rutinamile = new Rutina(persona=milena)
+	
+	rutinamile.agregarRutina(magneto1)
+	rutinamile.agregarRutina(bicicleta1)
+	rutinamile.agregarRutina(miniTramp1)
+	
+	assert.notThat(rutinamile.puedeHacerRutina())
+
+}
